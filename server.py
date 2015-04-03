@@ -19,7 +19,7 @@ def sendmsg(send_msg):
 
 if __name__ == "__main__":
     i = 0
-    for i in range(12):
+    for i in range(20):
         j = i +100
         print(j)
         sendmsg(j.to_bytes(1,"big"))
