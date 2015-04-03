@@ -8,11 +8,11 @@ Created on Fri Apr  3 23:05:35 2015
 import socket
 import time
 
-host = '10.249.255.194'
+host = '10.249.255.147'
 port = 9999
 clientsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 clientsock.bind((host, port))
-print("wait...")
+print("waiting...")
 
 for i in range(10):
     recv_msg, addr = clientsock.recvfrom(1024)
