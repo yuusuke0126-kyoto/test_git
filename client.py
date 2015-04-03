@@ -13,7 +13,6 @@ port = 9999
 clientsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 clientsock.bind((host, port))
 print("wait...")
-time.sleep(1)
 
 for i in range(10):
     recv_msg, addr = clientsock.recvfrom(1024)
