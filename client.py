@@ -17,8 +17,4 @@ time.sleep(1)
 
 for i in range(10):
     recv_msg, addr = clientsock.recvfrom(1024)
-    print("Received ->", recv_msg)
-#while True:
-#    recv_msg, addr = clientsock.recvfrom(1024)
-#    print("Received ->", recv_msg)
-#    break
+    print("Received ->", int.from_bytes(recv_msg, "big"))

@@ -19,8 +19,9 @@ def sendmsg(send_msg):
 
 if __name__ == "__main__":
     i = 0
-    for i in range(10):
-        print(str(i++100))
-        sendmsg(bytes(i+100))
+    for i in range(100):
+        j = i +100
+        print(j)
+        sendmsg(j.to_bytes(1,"big"))
         time.sleep(0.5)
     
