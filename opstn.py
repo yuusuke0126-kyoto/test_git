@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 This is UDP program for Opstn
-
 @author: Swarm Control 1
 """
 import select
@@ -85,17 +84,6 @@ def test():
     
     successful_count = 0
     
-<<<<<<< HEAD
-    for i in range(20):
-        print("waiting...")
-        recv_msg, addr = Recvsock.recvfrom(1024)
-        print("Received ->", int.from_bytes(recv_msg, "big"))
-        time.sleep(1)
-        
-        print(i)
-        sendmsg(i.to_bytes(1,"big"), hostrpi, 9998)
-        time.sleep(1)
-=======
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
     sock.bind((hostopstn, 9999))
@@ -116,4 +104,3 @@ def test():
 
 if __name__ == "__main__":
     test()
->>>>>>> f24306d855b50552e28401c23a424e452cbba7a6
