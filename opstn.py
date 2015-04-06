@@ -24,13 +24,13 @@ def get_latest(sock, size=1):
     ----------
     sock : socket
         The socket to be emptied.
+    size : int
+        The number of bytes to read at a time.
         
     Returns
     -------
     data : bytes
         The last received message, or None if the socket was not ready.
-    size : int
-        The number of bytes to read at a time.
     
     """
     data = None
