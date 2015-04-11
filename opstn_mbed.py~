@@ -178,7 +178,7 @@ class Arm:
             0 : stop
             1 : turn to right
             2 : turn to left
-        
+
         """
         senddata = 0
         if max(mode, linear, pitch, yaw) > 3:
@@ -228,14 +228,14 @@ if __name__ == "__main__":
             if mode is 0:
                 for i in range(10):
                     arm.send_arm(mode, linear, pitch, yaw)
-                    time.sleep(0.05)
+                    time.sleep(1.05)
                     sensor_data = arm.recv_sensor()
                     if sensor_data is not None:
                         print("Reception success!")
                         print("Received -> ", sensor_data, "\n")
                     else:
                         print("Reception failure!\n")
-                    time.sleep(0.05)
+                    time.sleep(1.05)
             elif mode is not 3:
                 arm.send_arm(mode, 0, 0, 0)
                 time.sleep(0.05)

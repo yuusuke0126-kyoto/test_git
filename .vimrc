@@ -54,6 +54,8 @@ nnoremap ;  :
 vnoremap ;  :
 nnoremap <Space>h  ^
 nnoremap <Space>l  $
+nnoremap <S-h>  ^
+nnoremap <S-l>  $
 nnoremap k   gk
 nnoremap j   gj
 vnoremap k   gk
@@ -71,6 +73,9 @@ vnoremap <expr> N <SID>search_forward_p() ? 'Nzv' : 'nzv'
 function! s:search_forward_p()
   return exists('v:searchforward') ? v:searchforward : 1
 endfunction
+nnoremap <silent> tt  :<C-u>tabe<CR>
+nnoremap <C-p>  gT
+nnoremap <C-n>  gt
 nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
@@ -98,20 +103,18 @@ nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w><CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
-noremap <c-d> <delete>
+"インサートモードでも移動
 inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-h> <left>
 inoremap <c-l> <right>
-"画面切り替え
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-h> <c-w>h
 "<space>j, <space>kで画面送り
-noremap [Prefix]j <c-f><cr><cr>
-noremap [Prefix]k <c-b><cr><cr>
+noremap <space>j <c-f><cr><cr>
+noremap <space>k <c-b><cr><cr>
 
+noremap <c-i> K
+noremap <s-j> gT
+noremap <s-k> gt
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")

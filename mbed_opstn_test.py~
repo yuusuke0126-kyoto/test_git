@@ -27,20 +27,21 @@ if __name__ == "__main__":
         for i in range(256):
             recv_msg = sock.recv(1024)
             recv_data = int.from_bytes(recv_msg, "little")
-            print("\nReceived ->", recv_data, bin(recv_data))
+            print("Received ->", recv_data, bin(recv_data))
             time.sleep(0.001)
             
             if recv_data > 3 or recv_data == 0:
                 if i % 3 is not 0:
-                    data_list = [str((j+i)/2) for j in range(50)]
-                    data_str = " ".join(data_list)
-                    #print(data_str)
-                    send_data = data_str.encode()
-                    print("Send data " + data_list[0])
-                    sock.sendto(send_data, hostopstn)
-                    time.sleep(0.001)
+                    for k in range(10):
+                        data_list = [str((j+k+i)/2) for j in range(50)]
+                        data_str = " ".join(data_list)
+                        #print(data_str)
+                        send_data = data_str.encode()
+                        print("Send data " + data_list[0])
+                        sock.sendto(send_data, hostopstn)
+                        time.sleep(0.001)
                 else:
-                    print("\nNot send data")
+                    print("Not send data\n")
             elif recv_data == 3:
                 print("Quit mode")
                 break
