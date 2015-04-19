@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 This is UDP program for Opstn
-@author: Swarm Control 1
+@author: Swarm Control 1 Sun Apr 19
 """
 import select
 import signal
