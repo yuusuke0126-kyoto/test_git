@@ -48,14 +48,18 @@ set rnu			" relativenumber
 
 " from
 " https://github.com/deris/dotfiles/blob/4de18237118e2d166b6c0baebf86d9a44d7b24bc/.minimal_vimrc 
+set list
+set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
+" set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<,eol:<
+set whichwrap=h,l
 nnoremap <Space>w  :<C-u>w<CR>
 nnoremap <Space>q  :<C-u>q<CR>
 nnoremap ;  :
 vnoremap ;  :
 nnoremap <Space>h  ^
 nnoremap <Space>l  $
-nnoremap <S-h>  ^
-nnoremap <S-l>  $
+noremap <S-h>  ^
+noremap <S-l>  $
 nnoremap k   gk
 nnoremap j   gj
 vnoremap k   gk

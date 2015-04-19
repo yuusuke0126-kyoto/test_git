@@ -71,7 +71,7 @@ def receive_data(sock, delay=0.01, size=32):
         pass
     finally:
         signal.alarm(0)  # Cancel interrupt.
-
+    
     return recv_msg
 
 def get_input():
@@ -96,8 +96,11 @@ def get_input():
         mode = 2
     elif key == "S":
         mode = 1
-    
+    else:
+        print("ValueError")
+
     return mode, linear, pitch, yaw
+
 
 class Arm:
     """
@@ -108,7 +111,7 @@ class Arm:
     Initialize with ip_address and port of opstn and ip_address and  port of 
     mbed. After initialize, send arm command by 'send_arm' and receive sensor
     and dynamixel date by 'recv_sensor'.
-
+    
     Parameters
     ----------
     hostopstn : str
@@ -119,7 +122,7 @@ class Arm:
         mbed's host.
     portmbed : int
         mbed's port.
-
+    
     Attributes
     ----------
     hostopstn : str
@@ -194,14 +197,14 @@ class Arm:
     def recv_sensor(self):
         """
         Reveive dynamixel and sensor data.
-
+        
         Returns
         -------
         float list
             Sensor data.
             6 dynamixel data and 33 sensor data can be used.
-
-        """        
+        
+        """
         recv_msg = receive_data(self.sock, size=1024)
         if recv_msg is not None:
             recv_msg_str = recv_msg.decode()
@@ -222,7 +225,7 @@ if __name__ == "__main__":
     time.sleep(1)
     
     try:
-        while True:            
+        while True:
             mode, linear, pitch, yaw = get_input()
             print(mode, linear, pitch, yaw)
             if mode is 0:
@@ -245,7 +248,7 @@ if __name__ == "__main__":
                 arm.send_arm(mode, 0, 0, 0)
                 print()
                 break
-
+    
     finally:
         arm.sock.close()
         print("\nTerminate socket\n")
